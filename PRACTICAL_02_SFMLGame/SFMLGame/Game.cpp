@@ -42,6 +42,22 @@ void Game::update()
 		player->update();
 		npc->update();
 	}
+
+	if (npc->npcSprite.getGlobalBounds().intersects(player->playerSprite.getGlobalBounds()))
+	{ 
+		std::cout << "Collision Brah" << std::endl;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		
+		player->playerSprite.setPosition(player->playerSprite.getPosition().x - 1, player->playerSprite.getPosition().y);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+
+		player->playerSprite.setPosition(player->playerSprite.getPosition().x + 1, player->playerSprite.getPosition().y);
+	}
 }
 
 void Game::draw()
